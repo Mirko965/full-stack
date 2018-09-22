@@ -5,8 +5,7 @@
   "main": "react/indecision-app/src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node/web-server/server.js"
-
+    "start": "node node/web-server/server.js"
   },
   "author": "Mirko",
   "license": "ISC",

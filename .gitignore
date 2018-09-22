@@ -3,3 +3,4 @@ playground/
 package-lock.json
 .idea/
 node/web-server/server.log
+server.log

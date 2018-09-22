@@ -5,13 +5,14 @@ const hbs = require('hbs')
 hbs.handlebars = require('handlebars')
 
 const app = express()
-const port = process.env || 3000
+const port = process.env.PORT || 3000
 
 hbs.registerPartials(__dirname + '/views/partials')
 hbs.registerHelper('getCurrentYear',() => new Date().getFullYear())
 hbs.registerHelper('toUpper', (text) => {return text.toUpperCase()} )
-app.set('views engine','hbs')
 
+app.set('views', path.resolve(__dirname, 'views'));
+app.set('views engine','hbs')
 
 app.use((req,res,next) => {
   const now = new Date().toString()
@@ -27,7 +28,7 @@ app.use((req,res,next) => {
 // app.use((req,res,next) => {
 //   res.render('main.hbs')
 // })
-app.use(express.static(path.join('public')))
+app.use(express.static(path.join('node/web-server/public')))
 
 app.get('/', (req,res) => {
   res.render('home.hbs',{
