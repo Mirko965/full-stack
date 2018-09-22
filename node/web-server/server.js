@@ -5,6 +5,7 @@ const hbs = require('hbs')
 hbs.handlebars = require('handlebars')
 
 const app = express()
+const port = process.env || 3000
 
 hbs.registerPartials(__dirname + '/views/partials')
 hbs.registerHelper('getCurrentYear',() => new Date().getFullYear())
@@ -52,7 +53,7 @@ app.get('/bad', (req, res) => {
 })
 
 
-const port = 3000
+
 app.listen(port,() => {
   console.log(`Server listening on port ${port}`)
 })
