@@ -52,9 +52,22 @@ app.get('/bad', (req, res) => {
     error:'This is wrong'
   })
 })
+app.get('/users', (req,res) => {
+  res.send([{
+    name: 'Mirko',
+    age: 52
+  },{
+    name: 'Pera',
+    age:33
+  }])
+})
 
 
 
 app.listen(port,() => {
   console.log(`Server listening on port ${port}`)
 })
+
+module.exports = {
+  app
+}
