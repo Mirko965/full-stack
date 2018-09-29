@@ -3,15 +3,17 @@ import Header from './Header'
 import Action from './Action'
 import Options from './Options'
 import AddOption from './AddOption'
+import OptionModal from './OptionModal'
 
 class IndecisionApp extends React.Component {
   state = {
-    options:[]
+    options:[],
+    selectedOption: undefined
   }
 
   render () {
     return (
-      <div>
+      <div id='modal'>
         <Header subTitle='Put your life in the hand of Computer'/>
         <Action handlePick={this.handlePick}
                 hasOption={!this.state.options.length > 0}/>
@@ -20,6 +22,10 @@ class IndecisionApp extends React.Component {
                  deleteOption={this.handleDeleteOption}
         />
         <AddOption addOption={this.handleAddOption}/>
+        <OptionModal
+          selectedOption={this.state.selectedOption}
+          removeModal={this.handleRemoveModal}
+        />
       </div>
     )
   }
@@ -30,9 +36,11 @@ class IndecisionApp extends React.Component {
   }
 
   handlePick =  () => {
-    const options = this.state.options
-    const randomNum = Math.floor(Math.random() * options.length)
-    alert(options[randomNum])
+    const randomNum = Math.floor(Math.random() * this.state.options.length)
+    const options = this.state.options[randomNum]
+    this.setState(() => ({
+      selectedOption: options,
+    }))
   }
 
   handleAddOption =  (option) => {
@@ -49,6 +57,11 @@ class IndecisionApp extends React.Component {
   handleDeleteOption =  (optionToDelete) => {
     this.setState((prevState) => ({
       options: prevState.options.filter(option => optionToDelete !== option)
+    }))
+  }
+  handleRemoveModal = () => {
+    this.setState(() => ({
+      selectedOption: false
     }))
   }
 

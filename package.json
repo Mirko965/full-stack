@@ -22,11 +22,14 @@
   "dependencies": {
     "@google/maps": "^0.5.5",
     "axios": "^0.18.0",
+    "bson": "^3.0.2",
     "express": "^4.16.3",
     "handlebars": "^4.0.12",
     "hbs": "^4.0.1",
+    "mongodb": "^3.1.6",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-modal": "^3.6.1",
     "request": "^2.88.0",
     "yargs": "^12.0.2"
   },
